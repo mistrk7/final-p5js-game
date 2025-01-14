@@ -1,0 +1,40 @@
+What I'm making:
+
+I am making a project inspired by Vib-ribbion.
+Basically, vector graphics.
+
+Just start by making a clone of asteroids. 
+Break the asteroids, pieces fly across the screen, etc.
+That adds points.
+
+The goal is to survive as long as possible, and destroy as many to get points.
+
+The signature style will be the wobbly vector graphics.
+
+-- OR --
+
+Create a walking mech going across the screen.
+As he marches, shoot asteroids coming out of the sky, and obstacles in your way.
+This is more vib-ribbon inspired.
+
+-- Structure --
+
+Screens are loaded in level classes. 
+Cross-reference collision logic (using mouse pos, etc.)
+Each component will have a 'squiggle' construct.
+	- This helps to add that squiggly boil effect; displacement of vectors.
+
+You may need to learn how to read off other files (like JSON).
+You can do it. 
+
+--- Plan ---
+
+Start by setting up the main menu screen and elements.
+Then build the game that runs after that. 
+
+
+
+
+
+
+
