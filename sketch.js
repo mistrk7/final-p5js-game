@@ -1,12 +1,10 @@
-import { player } from './class.js';
-
-let objects = [
-  { class: player, name: "jacob", pos: [0, 0] }
-];
-
 let instances = [];  // Array to store instances
 
 function setup() {
+  let objects = [
+    { class: player, name: "jacob", pos: [0, 0] }
+  ];
+
   for (const obj of objects) {
     let instance = new obj.class(obj.name, obj.pos);  // Create an instance
     instances.push(instance);  // Store the instance
