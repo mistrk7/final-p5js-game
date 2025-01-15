@@ -19,9 +19,6 @@ class thing {
         const data = await response.json(); // Get the resonse as a json
         this.data = data; // Store the data in this properties
 
-
-
-
         console.log(this.sprite); // Get the sprite name
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -87,7 +84,7 @@ class thing {
                   // Show bounding box
                   noFill();
                   stroke(0, 0, 255);
-                  rect(this.pos[0],this.pos[1],bounding[1],bounding[3]);
+                  //rect(this.pos[0],this.pos[1],bounding[1],bounding[3]);
 
             };
           }
@@ -108,3 +105,25 @@ class thing {
       super.draw()
       }
     }
+  
+  class projectile extends thing {
+    constructor(name,pos,sprite,direction) {
+      super(name,pos,sprite)
+      this.thickness = 3;
+      this.direction = direction
+    }
+    setup(){
+      super.setup()
+    }
+    draw() {
+      super.draw()
+      if (this.direction=="up"){
+        this.pos[0] += 5
+        this.pos[1] += -3
+      }
+      if (this.direction=="down"){
+        this.pos[0] += -5
+        this.pos[1] += 3
+      }
+      }
+  }
