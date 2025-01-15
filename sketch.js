@@ -5,13 +5,17 @@ function setup() {
   let objects = [
     { class: player, sprite: "player", name: "jacob", pos: [400, 300] },
     { class: player, sprite: "player_fist", name: "jacob-fist", pos: [0, 0] },
-    { class: player, sprite: "player_foot", name: "jacob-foot", pos: [400, 300] },
+    { class: player, sprite: "player_foot", name: "jacob-foot", pos: [0,0] },
 
     { class: thing, sprite: "sun", name: "micheal", pos: [0, 0] },
     { class: thing, sprite: "floor", name: "afton", pos: [0, 0] }
   ];
 
-  objects[1].pos = [objects[0].pos[0]+5, objects[0].pos[0]+5]
+  // Fist position
+  objects[1].pos = [objects[0].pos[0]+ 150, objects[0].pos[0]+ 5]
+
+  // Foot position
+  objects[2].pos = [objects[0].pos[0]+ 5, objects[0].pos[0]+ 5]
 
   for (const obj of objects) {
     let instance = new obj.class(obj.name, obj.pos, obj.sprite);  // Create an instance, which is basically an element on the screen
@@ -20,18 +24,6 @@ function setup() {
 
   for (const instance of instances) {
     instance.setup();  // Setup each instance
-    async function fetchData() {
-      try {
-        const response = await fetch(`./class-data/${instance.sprite}.json`); // Fetch the instance data
-        if (!response.ok) {throw new Error(`HTTP error! status: ${response.status}`);}
-        data = await response.json(); // Get the response as a JSON
-        instance.data = data; // Store the data in instance properties
-        print(instance.sprite)
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-    fetchData()
   }
   print(instances)
 }
