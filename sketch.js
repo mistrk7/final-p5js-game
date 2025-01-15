@@ -4,9 +4,14 @@ let master_random = [0,0] // The thing that displaces all elements
 function setup() {
   let objects = [
     { class: player, sprite: "player", name: "jacob", pos: [400, 300] },
+    { class: player, sprite: "player_fist", name: "jacob-fist", pos: [0, 0] },
+    { class: player, sprite: "player_foot", name: "jacob-foot", pos: [400, 300] },
+
     { class: thing, sprite: "sun", name: "micheal", pos: [0, 0] },
     { class: thing, sprite: "floor", name: "afton", pos: [0, 0] }
   ];
+
+  objects[1].pos = [objects[0].pos[0]+5, objects[0].pos[0]+5]
 
   for (const obj of objects) {
     let instance = new obj.class(obj.name, obj.pos, obj.sprite);  // Create an instance, which is basically an element on the screen
@@ -28,7 +33,7 @@ function setup() {
     }
     fetchData()
   }
-  // print(instances)
+  print(instances)
 }
 
 let count = 0;
